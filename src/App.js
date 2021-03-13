@@ -5,18 +5,17 @@ import "./App.css";
 import Table from "./components/Table.js";
 import axios from "axios";
 import Search from "./components/Search";
+import sortBy from "lodash/sortBy";
 //setEmployeeList function that assigns value
 //employeeList contains all the data after the data is assigned
 function App() {
   const [employeeList, setEmployeeList] = useState([]);
-
   const [searchWord, setSearchWord] = useState("");
-
   const [filteredEmployees, setFilteredEmployees] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://randomuser.me/api/?results=10")
+      .get("https://randomuser.me/api/?results=20&nat=us,gb,ca,au")
       .then((response) => {
         // handle success
         setEmployeeList(response.data.results);
@@ -27,34 +26,32 @@ function App() {
         console.log(error);
       });
   }, []);
-  const handleClick = (event) => {
-    event.preventDefault();
+
+  const handleChange = (event) => {
+    const inputSearch = event.target.value;
+    setSearchWord(inputSearch);
     let results = employeeList.filter((employee) => {
       const firstN = employee.name.first.toLowerCase();
-      return firstN.includes(searchWord.toLowerCase());
-      // (searchWord===employee.name.first || searchWord===employee.name.last || searchWord===employee.email);
+      return firstN.includes(inputSearch.toLowerCase());
     });
     setFilteredEmployees(results);
   };
 
-  const handleChange = (event) => {
-    setSearchWord(event.target.value);
-    let results = employeeList.filter((employee) => {
-      const firstN = employee.name.first.toLowerCase();
-      return firstN.includes(searchWord.toLowerCase());
-    });
-    setFilteredEmployees(results);
+  const handleSort = (columnName)=>{
+    const sortedEmployees = sortBy(filteredEmployees, [columnName]);
+    setFilteredEmployees(sortedEmployees);
   };
 
   return (
     <div className="App">
       <Search
         handleChange={handleChange}
-        handleClick={handleClick}
         searchWord={searchWord}
         setSearchWord={setSearchWord}
       />
-      <Table employeeList={filteredEmployees} />
+      <Table 
+      handleSort={handleSort}
+      employeeList={filteredEmployees} />
     </div>
   );
 }

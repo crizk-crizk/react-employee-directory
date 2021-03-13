@@ -1,16 +1,16 @@
 import React from "react";
 import Row from "./Row.js";
+import "./Table.css";
 
-
-export default function Table({employeeList}) {
+export default function Table({employeeList, handleSort}) {
   return (
-    <div>
+    <div className="tableContainer">
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Surame</th>
-            <th>Email</th>
+            <th className="clickable" onClick={()=>handleSort("name.first")} >Name</th>
+            <th className="clickable" onClick={()=>handleSort("name.last")}>Surame</th>
+            <th className="clickable" onClick={()=>handleSort("email")}>Email</th>
             <th>Picture</th>
           </tr>
         </thead>

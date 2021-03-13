@@ -1,4 +1,4 @@
-const Search = ({ handleClick, searchWord, setSearchWord, handleChange }) => {
+const Search = ({ searchWord, setSearchWord, handleChange }) => {
   return (
     <div>
       <input
@@ -7,9 +7,6 @@ const Search = ({ handleClick, searchWord, setSearchWord, handleChange }) => {
         value={searchWord}
         onChange={handleChange}
       />
-      <button onClick={handleClick}>
-        <i className="fas fa-search"></i>
-      </button>
     </div>
   );
 };
