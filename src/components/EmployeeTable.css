@@ -1,15 +1,31 @@
 .clickable {
   cursor: pointer;
 }
-
 .tableContainer {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 20px;
 }
-
-th, td {
-  margin-left: 10px;
-  margin-right: 20px;
+.tableContainer > div {
+  width: 70%;
+}
+thead {
+  text-align: left !important;
+  color: rgb(255, 218, 107);
+  font-size: 25px;
+}
+td {
   text-align: left;
+  padding-left: 3px;
+  font-size: 20px;
+}
+tr{
+  border: 2px solid white;
+  background: gray;
+}
+tr:hover {
+  border: 3px solid rgb(255, 218, 107);
+  background-color: #104F55;
+  cursor: pointer;
+  color: rgb(255, 218, 107);
 }

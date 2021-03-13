@@ -6,6 +6,7 @@ import EmployeeTable from "./components/EmployeeTable.js";
 import axios from "axios";
 import Search from "./components/Search";
 import sortBy from "lodash/sortBy";
+import "bootstrap/dist/css/bootstrap.min.css";
 //setEmployeeList function that assigns value
 //employeeList contains all the data after the data is assigned
 function App() {
