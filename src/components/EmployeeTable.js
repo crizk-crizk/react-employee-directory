@@ -1,7 +1,7 @@
 import React from "react";
 import Row from "./Row.js";
-import "./Table.css";
-
+import "./EmployeeTable.css";
+//change Table name
 export default function Table({employeeList, handleSort}) {
   return (
     <div className="tableContainer">
