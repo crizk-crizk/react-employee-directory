@@ -1,0 +1,15 @@
+.clickable {
+  cursor: pointer;
+}
+
+.tableContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+th, td {
+  margin-left: 10px;
+  margin-right: 20px;
+  text-align: left;
+}
