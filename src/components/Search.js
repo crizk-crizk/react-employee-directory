@@ -1,13 +1,15 @@
+import Jumbotron from 'react-bootstrap/Jumbotron'
+
 const Search = ({ searchWord, setSearchWord, handleChange }) => {
   return (
-    <div>
+    <Jumbotron fluid>
       <input
         type="text"
         placeholder="Search for Employee"
         value={searchWord}
         onChange={handleChange}
       />
-    </div>
+    </Jumbotron>
   );
 };
 
