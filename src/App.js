@@ -43,16 +43,6 @@ function App() {
     setFilteredEmployees(sortedEmployees);
   };
 
-  /*
-  sortedEmployees = sortedEmployees.sort((a, b) => {
-  if (typeof a === "String") {
-  	return a[columnName].localeCompare(b[columnName]);
-  } else if (typeof a === "Number") {
-  	return a[columnName] > b[columnName];
-  }
-   });
- */
-
   return (
     <div className="App">
       <Search
